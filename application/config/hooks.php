@@ -1,0 +1,28 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+| -------------------------------------------------------------------------
+| Hooks
+| -------------------------------------------------------------------------
+| This file lets you define "hooks" to extend CI without hacking the core
+| files.  Please see the user guide for info:
+|
+|	https://codeigniter.com/userguide3/general/hooks.html
+|
+*/
+$hook['post_controller'][] = function()
+{
+	if (ENVIRONMENT === 'maintenance')
+	{
+		$CI =& get_instance();
+		
+		$CI->output->set_status_header(503);
+		$CI->output->set_content_type('application/json')->set_output(json_encode(
+			array(
+				'success' => FALSE,
+				'message' => 'Server is under maintenance'
+			)
+		));
+	}
+};
