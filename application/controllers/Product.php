@@ -62,15 +62,15 @@ class Product extends CI_Controller {
 	public function create()
 	{
 		$this->form_validation->set_rules(
-			'name', 'name',
+			'name', 'nama produk',
 			array('max_length[128]', 'required', 'trim')
 		);
 		$this->form_validation->set_rules(
-			'quantity', 'quantity',
+			'quantity', 'jumlah produk',
 			array('integer', 'required', 'trim')
 		);
 		$this->form_validation->set_rules(
-			'price', 'price',
+			'price', 'harga produk',
 			array('greater_than_equal_to[0]', 'integer', 'required', 'trim')
 		);
 
@@ -170,15 +170,15 @@ class Product extends CI_Controller {
 		}
 
 		$this->form_validation->set_rules(
-			'name', 'name',
+			'name', 'nama produk',
 			array('max_length[128]', 'required', 'trim')
 		);
 		$this->form_validation->set_rules(
-			'quantity', 'quantity',
+			'quantity', 'jumlah produk',
 			array('integer', 'required', 'trim')
 		);
 		$this->form_validation->set_rules(
-			'price', 'price',
+			'produk', 'harga produk',
 			array('greater_than_equal_to[0]', 'integer', 'required', 'trim')
 		);
 
