@@ -67,7 +67,7 @@ class Product extends CI_Controller {
 		);
 		$this->form_validation->set_rules(
 			'quantity', 'jumlah produk',
-			array('integer', 'required', 'trim')
+			array('greater_than_equal_to[0]', 'integer', 'required', 'trim')
 		);
 		$this->form_validation->set_rules(
 			'price', 'harga produk',
@@ -169,17 +169,19 @@ class Product extends CI_Controller {
 			return;
 		}
 
+		$_PUT = $this->input->input_stream();
+		$this->form_validation->set_data($_PUT);
 		$this->form_validation->set_rules(
 			'name', 'nama produk',
-			array('max_length[128]', 'required', 'trim')
+			array('max_length[128]', 'trim')
 		);
 		$this->form_validation->set_rules(
 			'quantity', 'jumlah produk',
-			array('integer', 'required', 'trim')
+			array('greater_than_equal_to[0]', 'integer', 'trim')
 		);
 		$this->form_validation->set_rules(
-			'produk', 'harga produk',
-			array('greater_than_equal_to[0]', 'integer', 'required', 'trim')
+			'price', 'harga produk',
+			array('greater_than_equal_to[0]', 'integer', 'trim')
 		);
 
 		if ($this->form_validation->run() === FALSE)

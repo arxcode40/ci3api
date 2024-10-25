@@ -74,9 +74,7 @@ class Product_model extends CI_Model {
 	public function update($id)
 	{
 		$product = array(
-			'name' => $this->input->post('name'),
-			'quantity' => $this->input->post('quantity'),
-			'price' => $this->input->post('price'),
+			...$this->input->input_stream(),
 			'updated_at' => mdate('%Y-%m-%d %H:%i:%s')
 		);
 

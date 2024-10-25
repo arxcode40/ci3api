@@ -30,6 +30,11 @@
 				<select class="form-select" id="method" required="required" style="max-width: max-content;">
 					<option value="get">GET</option>
 					<option value="post">POST</option>
+					<option value="put">PUT</option>
+					<option value="patch">PATCH</option>
+					<option value="delete">DELETE</option>
+					<option value="head">HEAD</option>
+					<option value="options">OPTIONS</option>
 				</select>
 				<input class="form-control" id="endpoint" placeholder="Enter URL or paste text" required="required" type="url" />
 				<button class="btn btn-primary" type="submit">Send</button>

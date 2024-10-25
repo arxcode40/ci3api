@@ -50,13 +50,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['produk']['POST'] = 'product/create';
-$route['produk/tambah']['POST'] = 'product/create';
 $route['produk']['GET'] = 'product/index';
 $route['produk/(:num)']['GET'] = 'product/show/$1';
-$route['produk/detail/(:num)']['GET'] = 'product/show/$1';
-$route['produk/ubah/(:num)']['POST'] = 'product/update/$1';
-$route['produk/hapus/(:num)']['POST'] = 'product/delete/$1';
+$route['produk/(:num)']['PUT'] = 'product/update/$1';
+$route['produk/(:num)']['PATCH'] = 'product/update/$1';
+$route['produk/(:num)']['DELETE'] = 'product/delete/$1';
 
 $route['default_controller'] = 'test';
-$route['404_override'] = '';
+$route['404_override'] = 'errors/not_found';
 $route['translate_uri_dashes'] = TRUE;
